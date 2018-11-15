@@ -147,13 +147,13 @@
 					<div class="fragment">
 						<span class="small-text">With vanilla 🍦 JavaScript</span>
 						<pre><code class="hljs">
-var divs = document.getElementsByTagName('div');
+  var divs = document.getElementsByTagName('div');
 						</code></pre>
 					</div>
 					<div class="fragment">
 						<span class="small-text">With jQuery</span>
 						<pre><code class="hljs">
-var divs = $('div'); // All divs on page
+  var divs = $('div'); // All divs on page
 						</code></pre>
 					</div>
 				</section>
@@ -163,8 +163,8 @@ var divs = $('div'); // All divs on page
 					<div class="fragment">
 						<span class="small-text">With vanilla 🍦 JavaScript</span>
 						<pre><code class="hljs">
-var cat = document.getElementById('cat');
-var dogs = document.getElementByClass('dog');
+  var cat = document.getElementById('cat');
+  var dogs = document.getElementByClass('dog');
 						</code></pre>
 					</div>
 					<div class="fragment">
@@ -188,7 +188,7 @@ var dogs = $('.dog'); // All elements with .dog class
 				</div>
 				<div class="fragment">
 					<pre><code contenteditable class = "javascript">
-$(selector).action();     
+  $(selector).action();     
             </code></pre>
 				</div>
 			</section>
@@ -198,24 +198,24 @@ $(selector).action();
 				<h3>Updating attributes and CSS</h3>
 				<div class="fragment">
 					<pre><code class="hljs">
-&lt;img id="dog" src="/assets/dog.png">         
+  &lt;img id="dog" src="/assets/dog.png">         
 					</code></pre>
 				</div>
 				<div class="fragment">
 					<span class="small-text">Getting and setting attributes</span>
 					<pre><code class="hljs">
-var dog = $('#dog');
-dog.attr('src'); // Get
-dog.attr('src', '/assets/also-a-dog.png'); // Set
+  var dog = $('#dog');
+  dog.attr('src'); // Get
+  dog.attr('src', '/assets/also-a-dog.png'); // Set
 					</code></pre>
 				</div>
 
 				<div class="fragment">
 					<span class="small-text">Getting and setting CSS properties</span>
 					<pre><code class="hljs">
-var dog = $('#dog');
-dog.css('width'); // Get
-dog.css('width', '200px'); // Set
+  var dog = $('#dog');
+  dog.css('width'); // Get
+  dog.css('width', '200px'); // Set
 					</code></pre>
 				</div>
 			</section>
@@ -225,48 +225,61 @@ dog.css('width', '200px'); // Set
 				<h3>Updating values and html</h3>
 				<div class="fragment">
 					<pre><code class="hljs">
-  &lt;div id = "results">Boo!&lt;/div>         
-            </code></pre>
+  &lt;div id="results">Boo!&lt;/div>         
+            		</code></pre>
 				</div>
 				<div class="fragment">
 					Get and set html value
 					<pre><code contenteditable class = "javascript">
   var div = $('#results');
-  div.html();
-  div.html('New html!');
-            </code></pre>
+  div.html(); // Get
+  div.html('New html!'); // Set
+            		</code></pre>
 				</div>
 			</section>
 
 			<!-- Append and prepend-->
 			<section>
-				<h3>Append and Prepend</h3>
+				<h3>Append</h3>
 				<div class="fragment">
 					<pre><code class="hljs">
-  &lt;div id = "results">Boo!&lt;/div>         
-            </code></pre>
+  &lt;div id="results">Boo!&lt;/div>         
+            		</code></pre>
 				</div>
 				<div class="fragment">
-					Append html
-					<pre><code contenteditable class = "javascript">
-    var div = $('#results');
-    div.append('Additional html');
-            </code></pre>
+					<pre><code class="hljs">
+  var div = $('#results');
+  div.append('Additional html');
+  $('Additional html').appendTo(div);
+            		</code></pre>
 				</div>
 				<div class="fragment">
-					Prepend html
-					<pre><code contenteditable class = "javascript">
-    var div = $('#results');
-    div.prepend('Additional html (on top)');
-            </code></pre>
+					<pre><code class="hljs">
+  &lt;div id="results">Boo!Additional html&lt;/div>
+					</code></pre>
 				</div>
 			</section>
 
 			<section>
-				<h3>Creating new element</h3>
+				<h3>Prepend</h3>
 				<div class="fragment">
-					<pre><code contenteditable class = "javascript">
-    var newDiv = $('&lt;div>&lt;/div>');
+					<pre><code class="hljs">
+  var div = $('#results');
+  div.prepend('Additional html');
+            		</code></pre>
+				</div>
+				<div class="fragment">
+					<pre><code class="hljs">
+  &lt;div id="results">Additional htmlBoo!&lt;/div>
+					</code></pre>
+				</div>
+			</section>
+
+			<section>
+				<h3>Creating a new element</h3>
+				<div class="fragment">
+					<pre><code class="hljs">
+  $('body').append('&lt;h1>New element&lt;/h1>');
             </code></pre>
 				</div>
 				<div class="fragment">

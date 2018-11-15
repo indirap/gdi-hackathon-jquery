@@ -30,8 +30,6 @@
 
 <body>
 	<div class="reveal">
-
-		<!-- Any section element inside of this container is displayed as a slide -->
 		<div class="slides">
 
 			<!-- Opening slide -->
@@ -127,8 +125,7 @@
 					<span class="small-text">Include the the live library</span>
 					<pre><code class="hljs html">
   &lt;head>
-    &lt;script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js">
-    &lt;/script>
+    &lt;script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js">&lt;/script>
   &lt;/head>
           </code></pre>
 				</div>
@@ -172,6 +169,20 @@
 						<pre><code class="hljs javascript">
   var cat = $('#cat'); // Element with #cat id
   var dogs = $('.dog'); // All elements with .dog class
+  var rabbits = $("p[type='rabbits']"); // All &lt;p> tags with the type attribute 'rabbits'
+						</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<h3>Narrowing down selections</h3>
+					<div class="fragment">
+						<pre><code class="hljs javascript">
+  $("div.dog").has("p");           // &lt;div> elements with the "dog" class that contain &lt;p> tags
+  $("h1").not(".cat");             // &lt;h1> elements that don't have a class of cat
+  $("ul li").filter(".current");   // unordered list items with class of current
+  $("ul li").first();              // just the first unordered list item
+  $("ul li").eq(5);                // the sixth (zero index)
 						</code></pre>
 					</div>
 				</section>
@@ -193,101 +204,134 @@
 				</div>
 			</section>
 
-			<!-- Attributes and css-->
+			<!-- Manipulating elements-->
 			<section>
-				<h3>Updating attributes and CSS</h3>
-				<div class="fragment">
-					<pre><code class="hljs html">
+
+				<section>
+					<h3>Manipulating elements</h3>
+					<div class="fragment">
+						<pre><code class="hljs javascript">
+  var cat = $('#cat');
+  cat.html(); // Get or set the HTML content
+  cat.text(); // Get or set the text content
+  cat.attr(); // Get or set the value of the given attribute
+  cat.width(); // Get or set the width
+  cat.height(); // Get or set the height
+						</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<h3>Updating attributes and CSS</h3>
+					<div class="fragment">
+						<pre><code class="hljs html">
   &lt;img id="dog" src="/assets/dog.png">         
-					</code></pre>
-				</div>
-				<div class="fragment">
-					<span class="small-text">Getting and setting attributes</span>
-					<pre><code class="hljs javascript">
+						</code></pre>
+					</div>
+					<div class="fragment">
+						<span class="small-text">Getting and setting attributes</span>
+						<pre><code class="hljs javascript">
   var dog = $('#dog');
   dog.attr('src'); // Get
   dog.attr('src', '/assets/also-a-dog.png'); // Set
-					</code></pre>
-				</div>
-
-				<div class="fragment">
-					<span class="small-text">Getting and setting CSS properties</span>
-					<pre><code class="hljs javascript">
+						</code></pre>
+					</div>
+		
+					<div class="fragment">
+						<span class="small-text">Getting and setting CSS properties</span>
+						<pre><code class="hljs javascript">
   var dog = $('#dog');
   dog.css('width'); // Get
   dog.css('width', '200px'); // Set
-					</code></pre>
-				</div>
-			</section>
+						</code></pre>
+					</div>
+				</section>
 
-			<!-- html values-->
-			<section>
-				<h3>Updating values and html</h3>
-				<div class="fragment">
-					<pre><code class="hljs html">
+				<section>
+					<h3>Updating values and html</h3>
+					<div class="fragment">
+						<pre><code class="hljs html">
   &lt;div id="results">Boo!&lt;/div>         
-            		</code></pre>
-				</div>
-				<div class="fragment">
-					Get and set html value
-					<pre><code class="hljs javascript">
+						</code></pre>
+					</div>
+					<div class="fragment">
+						Get and set html value
+						<pre><code class="hljs javascript">
   var div = $('#results');
   div.html(); // Get
   div.html('New html!'); // Set
-            		</code></pre>
-				</div>
+						</code></pre>
+					</div>
+				</section>
+
 			</section>
 
-			<!-- Append and prepend-->
 			<section>
-				<h3>Append</h3>
+				<h3>Adding and removing classes</h3>
 				<div class="fragment">
-					<pre><code class="hljs html">
-  &lt;div id="results">Boo!&lt;/div>         
-            		</code></pre>
-				</div>
-				<div class="fragment">
+					<span class="small-text">Adding a class</span>
 					<pre><code class="hljs javascript">
-  var div = $('#results');
-  div.append('Additional html');
-  $('Additional html').appendTo(div);
-            		</code></pre>
+  $('div').addClass('blue');
+					</code></pre>
 				</div>
 				<div class="fragment">
-					<pre><code class="hljs html">
-  &lt;div id="results">Boo!Additional html&lt;/div>
+					<span class="small-text">Removing a class</span>
+					<pre><code class="hljs javascript">
+  $('div').removeClass('blue');
 					</code></pre>
 				</div>
 			</section>
 
 			<section>
-				<h3>Prepend</h3>
-				<div class="fragment">
-					<pre><code class="hljs javascript">
-  var div = $('#results');
-  div.prepend('Additional html');
-            		</code></pre>
-				</div>
-				<div class="fragment">
-					<pre><code class="hljs html">
-  &lt;div id="results">Additional htmlBoo!&lt;/div>
-					</code></pre>
-				</div>
-			</section>
+				<section>
+					<h3>Adding, moving, copying and removing elements</h3>
+					<div class="fragment">
+						<pre><code class="hljs javascript">
+  var cat = $('#cat');
+  cat.insertAfter('#dog'); 		// insert cat after #dog
+  cat.after('#dog'); 			// insert #dog after cat
+  cat.insertBefore('#dog');		// insert cat before #dog
+  cat.before('#dog'); 			// insert #dog before cat
+  cat.append('Hello!'); 		// append Hello to cat
+  $('Hello!').appendTo(cat); 	// append Hello to cat
+  cat.prepend('Hello'); 		// prepend Hello to cat
+  $('Hello!').prependTo(cat); 	// prepend Hello to cat
+						</code></pre>
+					</div>
+				</section>
 
-			<section>
-				<h3>Creating a new element</h3>
-				<div class="fragment">
-					<pre><code class="hljs javascript">
+				<section>
+					<h3>Cloning an existing element</h3>
+					<div class="fragment">
+						<pre><code class="hljs javascript">
+ $("#cat").clone().appendTo('#animals');
+						</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<h3>Removing elements</h3>
+					<div class="fragment">
+						<pre><code class="hljs javascript">
+  $('#cat').remove();
+						</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<h3>Creating a new element</h3>
+					<div class="fragment">
+						<pre><code class="hljs javascript">
   $('body').append('&lt;h1>New element&lt;/h1>');
-            </code></pre>
-				</div>
-				<div class="fragment">
-					Seriously. That's it!
-				</div>
+				</code></pre>
+					</div>
+					<div class="fragment">
+						Seriously. That's it!
+					</div>
+				</section>
 			</section>
 
-			<!-- Exercise-->
+			<!-- Exercise 1-->
 			<section>
 				<h3>Let's Develop It!</h3>
 				<p>Try to convert last week's DOM interaction into jQuery.</p>
@@ -297,17 +341,25 @@
 			<!-- Document Ready-->
 			<section>
 				<h3>Document Ready</h3>
+				<!-- A page can't be manipulated safely until the document is "ready." jQuery detects this state of readiness for you. Code included inside $( document ).ready() will only run once the page Document Object Model (DOM) is ready for JavaScript code to execute -->
 				<div class="left-align">
-					<p>Pages take time to load</p>
-					<p class="fragment">Almost always, you don't want the JavaScript to be called until the page is loaded</p>
+					<p>Pages can't be manipulated safely until the document is "ready."</p>
+					<p class="fragment">jQuery can detect this state of readiness for you!</p>
 				</div>
 				<div class="fragment">
-					Use the ready function to make sure a function is only called when the page is loaded
 					<pre><code class="hljs javascript">
   $(document).ready(function() {
 	// stuff here
   });
             		</code></pre>
+				</div>
+				<div class="fragment">
+					<span class="small-text">There's also a shorter way to write it...</span>
+					<pre><code class="hljs javascript">
+  $(function() {
+	  // stuff here
+  });
+					</code></pre>
 				</div>
 			</section>
 

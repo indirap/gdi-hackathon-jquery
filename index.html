@@ -14,7 +14,7 @@
 
 	<link rel="stylesheet" href="reveal.js/css/reveal.css">
 
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i|Poppins:700,700i" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i|Poppins:700,700i|PT+Mono" rel="stylesheet">
 
 	<!-- Theme used for syntax highlighting of code -->
 	<link rel="stylesheet" href="lib/css/monokai-sublime.css">
@@ -117,7 +117,7 @@
 				<h3>Including jQuery</h3>
 				<div class="fragment">
 					<span class="small-text">Download the library, store it locally</span>
-					<pre><code class="hljs">
+					<pre><code class="hljs html">
   &lt;head>
     &lt;script type="text/javascript" src="jquery.js">&lt;/script>
   &lt;/head>
@@ -125,7 +125,7 @@
 				</div>
 				<div class="fragment">
 					<span class="small-text">Include the the live library</span>
-					<pre><code class="hljs">
+					<pre><code class="hljs html">
   &lt;head>
     &lt;script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js">
     &lt;/script>
@@ -146,13 +146,13 @@
 					<!-- <p>Remember <span class="green">document.getElementById()</span> and <span class="green">documet.getElementsByTagName()</span>? -->
 					<div class="fragment">
 						<span class="small-text">With vanilla 🍦 JavaScript</span>
-						<pre><code class="hljs">
+						<pre><code class="hljs javascript">
   var divs = document.getElementsByTagName('div');
 						</code></pre>
 					</div>
 					<div class="fragment">
 						<span class="small-text">With jQuery</span>
-						<pre><code class="hljs">
+						<pre><code class="hljs javascript">
   var divs = $('div'); // All divs on page
 						</code></pre>
 					</div>
@@ -162,16 +162,16 @@
 					<h3>[More] jQuery Selectors</h3>
 					<div class="fragment">
 						<span class="small-text">With vanilla 🍦 JavaScript</span>
-						<pre><code class="hljs">
+						<pre><code class="hljs javascript">
   var cat = document.getElementById('cat');
   var dogs = document.getElementByClass('dog');
 						</code></pre>
 					</div>
 					<div class="fragment">
 						<span class="small-text">With jQuery</span>
-						<pre><code class="hljs">
-var cat = $('#cat'); // Element with #cat id
-var dogs = $('.dog'); // All elements with .dog class
+						<pre><code class="hljs javascript">
+  var cat = $('#cat'); // Element with #cat id
+  var dogs = $('.dog'); // All elements with .dog class
 						</code></pre>
 					</div>
 				</section>
@@ -187,7 +187,7 @@ var dogs = $('.dog'); // All elements with .dog class
 					<p class="fragment">As methods they are called with dot notation</p>
 				</div>
 				<div class="fragment">
-					<pre><code contenteditable class = "javascript">
+					<pre><code class="hljs javascript">
   $(selector).action();     
             </code></pre>
 				</div>
@@ -197,13 +197,13 @@ var dogs = $('.dog'); // All elements with .dog class
 			<section>
 				<h3>Updating attributes and CSS</h3>
 				<div class="fragment">
-					<pre><code class="hljs">
+					<pre><code class="hljs html">
   &lt;img id="dog" src="/assets/dog.png">         
 					</code></pre>
 				</div>
 				<div class="fragment">
 					<span class="small-text">Getting and setting attributes</span>
-					<pre><code class="hljs">
+					<pre><code class="hljs javascript">
   var dog = $('#dog');
   dog.attr('src'); // Get
   dog.attr('src', '/assets/also-a-dog.png'); // Set
@@ -212,7 +212,7 @@ var dogs = $('.dog'); // All elements with .dog class
 
 				<div class="fragment">
 					<span class="small-text">Getting and setting CSS properties</span>
-					<pre><code class="hljs">
+					<pre><code class="hljs javascript">
   var dog = $('#dog');
   dog.css('width'); // Get
   dog.css('width', '200px'); // Set
@@ -224,13 +224,13 @@ var dogs = $('.dog'); // All elements with .dog class
 			<section>
 				<h3>Updating values and html</h3>
 				<div class="fragment">
-					<pre><code class="hljs">
+					<pre><code class="hljs html">
   &lt;div id="results">Boo!&lt;/div>         
             		</code></pre>
 				</div>
 				<div class="fragment">
 					Get and set html value
-					<pre><code contenteditable class = "javascript">
+					<pre><code class="hljs javascript">
   var div = $('#results');
   div.html(); // Get
   div.html('New html!'); // Set
@@ -242,19 +242,19 @@ var dogs = $('.dog'); // All elements with .dog class
 			<section>
 				<h3>Append</h3>
 				<div class="fragment">
-					<pre><code class="hljs">
+					<pre><code class="hljs html">
   &lt;div id="results">Boo!&lt;/div>         
             		</code></pre>
 				</div>
 				<div class="fragment">
-					<pre><code class="hljs">
+					<pre><code class="hljs javascript">
   var div = $('#results');
   div.append('Additional html');
   $('Additional html').appendTo(div);
             		</code></pre>
 				</div>
 				<div class="fragment">
-					<pre><code class="hljs">
+					<pre><code class="hljs html">
   &lt;div id="results">Boo!Additional html&lt;/div>
 					</code></pre>
 				</div>
@@ -263,13 +263,13 @@ var dogs = $('.dog'); // All elements with .dog class
 			<section>
 				<h3>Prepend</h3>
 				<div class="fragment">
-					<pre><code class="hljs">
+					<pre><code class="hljs javascript">
   var div = $('#results');
   div.prepend('Additional html');
             		</code></pre>
 				</div>
 				<div class="fragment">
-					<pre><code class="hljs">
+					<pre><code class="hljs html">
   &lt;div id="results">Additional htmlBoo!&lt;/div>
 					</code></pre>
 				</div>
@@ -278,7 +278,7 @@ var dogs = $('.dog'); // All elements with .dog class
 			<section>
 				<h3>Creating a new element</h3>
 				<div class="fragment">
-					<pre><code class="hljs">
+					<pre><code class="hljs javascript">
   $('body').append('&lt;h1>New element&lt;/h1>');
             </code></pre>
 				</div>
@@ -298,20 +298,16 @@ var dogs = $('.dog'); // All elements with .dog class
 			<section>
 				<h3>Document Ready</h3>
 				<div class="left-align">
-					<p>Webpages take time to load</p>
+					<p>Pages take time to load</p>
 					<p class="fragment">Almost always, you don't want the JavaScript to be called until the page is loaded</p>
 				</div>
 				<div class="fragment">
-					Document ready is a method called when the page is loaded
-					<pre><code contenteditable class = "javascript">
-        $(document).ready(function(){
-          
-        });
-            </code></pre>
-				</div>
-				<div class="fragment left-align">
-					<span class="yellow">Note:</span> The function() inside is an "anonymous function". It has no name, but still
-					performs like a function.
+					Use the ready function to make sure a function is only called when the page is loaded
+					<pre><code class="hljs javascript">
+  $(document).ready(function() {
+	// stuff here
+  });
+            		</code></pre>
 				</div>
 			</section>
 
@@ -321,55 +317,55 @@ var dogs = $('.dog'); // All elements with .dog class
 				<p>Events occur on a webpage via user interaction</p>
 				<p class="fragment">Common Events:</p>
 				<ul>
-					<li class="fragment">mouseenter -- mouse goes inside an element</li>
-					<li class="fragment">mouseleave -- mouse leaves an element</li>
-					<li class="fragment">click -- mouse clicks an element</li>
+					<li class="fragment"><span class="inline-code">mouseenter</span>:mouse goes inside an element</li>
+					<li class="fragment"><span class="inline-code">mouseleave</span>: mouse leaves an element</li>
+					<li class="fragment"><span class="inline-code">click</span>: mouse clicks an element</li>
 					<li class="fragment"><a href="http://api.jquery.com/category/events/" target="_blank">Other events</a></li>
 				</ul>
 			</section>
 
 			<section>
 				<h3>Handling events</h3>
-				<pre><code contenteditable class = "javascript">
+				<pre><code class="hljs javascript">
   $(selector).mouseenter(function(){
     //code when the mouse enters
-  })
+  });
       </code></pre>
 				<div class="fragment">
-					<pre><code contenteditable class = "javascript">
+					<pre><code class="hljs javascript">
   $('.box').mouseenter(function(){
     $(this).css('background-color', 'purple')
-  })
+  });
       </code></pre>
 				</div>
 				<div class="fragment left-align">
-					<div>The <span class="green">$(this)</span> selector in jQuery refers to the element on whom the action was
+					<div>The <span class="inline-code">$(this)</span> selector in jQuery refers to the element on whom the action was
 						called.</div>
-					<div>Here <span class="green">$(this)</span> is the <span class="blue">$('.box')</span> that the mouse entered.
+					<div>Here <span class="inline-code">$(this)</span> is the <span class="inline-code">$('.box')</span> that the mouse entered.
 					</div>
 			</section>
 
 			<section>
 				<h3>Handling event examples</h3>
 				<div class="fragment">
-					<pre><code contenteditable class = "javascript">
-      $('.box').mouseenter(function(){
-        $(this).css('background-color', 'purple')
-      })
+					<pre><code class="hljs javascript">
+  $('.box').mouseenter(function(){
+    $(this).css('background-color', 'purple');
+  });
             </code></pre>
 				</div>
 				<div class="fragment">
-					<pre><code contenteditable class = "javascript">
-      $('.box').mouseleave(function(){
-        $(this).css('background-color', 'orange')
-      })
+					<pre><code class="hljs javascript">
+  $('.box').mouseleave(function(){
+	$(this).css('background-color', 'orange');
+  });
           </code></pre>
 				</div>
 				<div class="fragment">
-					<pre><code contenteditable class = "javascript">
-      $('.box').click(function(){
-        $(this).css('background-color', 'green')
-      })
+					<pre><code class="hljs javascript">
+  $('.box').click(function(){
+	$(this).css('background-color', 'green');
+  });
           </code></pre>
 				</div>
 			</section>
@@ -378,18 +374,18 @@ var dogs = $('.dog'); // All elements with .dog class
 				<h3>Combining events</h3>
 				<p>If you want multiple events to happen on the same element, you should use the bind method</p>
 				<div class="fragment">
-					<pre><code contenteditable class = "javascript">
-      $('.box').bind({
-        click: function() {
-          $(this).css('background-color', 'green')
-        },
-        mouseenter: function() {
-          $(this).css('background-color', 'purple')
-        },
-        mouseleave: function(){
-          $(this).css('background-color', 'orange')
-        }
-      });
+					<pre><code class="hljs javascript">
+  $('.box').bind({
+    click: function() {
+      $(this).css('background-color', 'green')
+    },
+    mouseenter: function() {
+      $(this).css('background-color', 'purple')
+    },
+    mouseleave: function(){
+      $(this).css('background-color', 'orange')
+    }
+  });
           </code></pre>
 				</div>
 			</section>
@@ -411,22 +407,22 @@ var dogs = $('.dog'); // All elements with .dog class
 				<h3>HTML forms</h3>
 				<p>HTML Forms allow users to enter information</p>
 				<div class="fragment">
-					<pre><code class="hljs">
-&lt;form id ="about-me">
-  &lt;input type = "text" id = "name" placeholder = "Enter a name"/>
-  &lt;label>Do you like popcorn&lt;/label>
-  Yes &lt;input type = "radio" name = "popcorn" val = "yes"/>
-  No &lt;input type = "radio" name = "popcorn" val = "no"/>
-  &lt;label>Favorite Dinosaur&lt;/label>
-  &lt;select id = "dinosaur">
-    &lt;option value = "t-rex">Tyrannosaurus Rex&lt;/option>
-    &lt;option value = "tri">Triceratops&lt;/option>
-    &lt;option value = "stego">Stegosaurus&lt;/option>
-    &lt;option value = "other">Other&lt;/option>
-  &lt;/select>
-  &lt;input type = "submit" value = "Go!" style = "padding: 7px; font-size:1em"/>
-&lt;/form>
-            </code></pre>
+					<pre><code class="hljs html">
+  &lt;form id="about-me">
+    &lt;input type="text" id="name" placeholder="Enter a name"/>
+    &lt;label>Do you like popcorn&lt;/label>
+    Yes &lt;input type="radio" name="popcorn" val="yes"/>
+    No &lt;input type="radio" name="popcorn" val="no"/>
+    &lt;label>Favorite Dinosaur&lt;/label>
+    &lt;select id="dinosaur">
+      &lt;option value="t-rex">Tyrannosaurus Rex&lt;/option>
+      &lt;option value="tri">Triceratops&lt;/option>
+      &lt;option value="stego">Stegosaurus&lt;/option>
+      &lt;option value="other">Other&lt;/option>
+    &lt;/select>
+    &lt;input type="submit" value="Go!" style="padding: 7px; font-size:1em"/>
+  &lt;/form>
+					</code></pre>
 				</div>
 			</section>
 
@@ -456,19 +452,19 @@ var dogs = $('.dog'); // All elements with .dog class
 				<h3>Values from Forms</h3>
 				<p>You can use JavaScript to get values from a form</p>
 				<div class="fragment">
-					<pre><code contenteditable class = "javascript">
-    $('#name').val();
-    $('select#dinosaur').val();
-    $('input:radio[name=popcorn]:checked').val();
+					<pre><code class="hljs javascript">
+  $('#name').val();
+  $('select#dinosaur').val();
+  $('input:radio[name=popcorn]:checked').val();
             </code></pre>
 				</div>
-				<div class="fragment">
+				<div class="fragment javascript">
 					Or set values of a form
-					<pre><code contenteditable class = "javascript">
-    $('#name').val('Mitch');
-    $('select#dinosaur').val('stego');
-    $('input:radio[name=popcorn]:checked').val('no');
-            </code></pre>
+					<pre><code class="hljs javascript">
+  $('#name').val('Mitch');
+  $('select#dinosaur').val('stego');
+  $('input:radio[name=popcorn]:checked').val('no');
+					</code></pre>
 				</div>
 			</section>
 
@@ -476,13 +472,13 @@ var dogs = $('.dog'); // All elements with .dog class
 				<h3>Values from Forms</h3>
 				<p>jQuery has an event for form submission</p>
 				<div class="fragment">
-					<pre><code contenteditable class = "javascript">
-      $('#about-me').submit(function(event){
-            //code to execute after submission
-            return false;
-        });
-            </code></pre>
-					<span class="yellow">"return false"</span> to prevent the form trying to submit to a server.
+					<pre><code class="hljs javascript">
+  $('#about-me').submit(function(event){
+    //code to execute after submission
+    return false;
+  });
+					</code></pre>
+					<span class="inline-code">"return false"</span> to prevent the form trying to submit to a server.
 				</div>
 			</section>
 
@@ -500,10 +496,7 @@ var dogs = $('.dog'); // All elements with .dog class
 			</section>
 			<!-- -->
 			<section>
-				<h2>Questions?</h2>
-				<div style="font-size:1200%; height:100%; margin-top:40%" class="blue">?
-					<div class="clear"></div>
-				</div>
+				<h2>Questions? <span>🙋‍♀️</span></h2>
 			</section>
 		</div>
 		<footer>

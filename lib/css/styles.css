@@ -26,3 +26,7 @@
 .reveal span.small-text {
 	font-size: 30px;
 }
+
+span.inline-code {
+	font-family: 'PT Mono', monospace;
+}
